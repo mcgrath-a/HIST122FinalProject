@@ -158,25 +158,51 @@
       </div>      
 
     
- <!-- start of box 1 -->
+
  <section class="timeline-section">
 	<div class="timeline-items">
 
+     <!-- timeline item 1 -->
 		<div class="timeline-item">
 			<div class="timeline-dot"></div>
 			<div class="timeline-date">2015</div>
       <div class="quiz">
         <p>Question 1: True or False?</p>
-        <button onclick="checkAnswer('true')" style="background-color: green; color: white;">True</button>
-        <button onclick="checkAnswer('false')" style="background-color: red; color: white;">False</button>
+        <button onclick="checkAnswer('true', 'false', 1)" style="background-color: green; color: white;">True</button>
+        <button onclick="checkAnswer('false', 'false', 1)" style="background-color: red; color: white;">False</button>
         <span id="feedback-1" class="correct-incorrect"></span>
       </div>
-			<div class="timeline-content" id="timeline-text" style="display: none;">
+			<div class="timeline-content" id="timeline-text-1" style="display: none;">
         <h3>timeline item title</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
         <button class="read-more" id="info-btn-1" style="background-color: purple; color: white;">Read More</button>
 
         <div class="modal" id="modal-1">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <br>
+            <img src="images/black.jpeg" alt="Your Image Description" class="modal-image" width="400" height="400">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Cras porttitor metus justo, ut fringilla nibh pretium a. Fusce laoreet consequat sapien, id congue</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+         <!-- timeline item 2 -->
+    <div class="timeline-item">
+			<div class="timeline-dot"></div>
+			<div class="timeline-date">2015</div>
+      <div class="quiz">
+        <p>Question 1: True or False?</p>
+        <button onclick="checkAnswer('true', 'false', 2)" style="background-color: green; color: white;">True</button>
+        <button onclick="checkAnswer('true', 'true', 2)" style="background-color: red; color: white;">False</button>
+        <span id="feedback-2" class="correct-incorrect"></span>
+      </div>
+			<div class="timeline-content" id="timeline-text-2" style="display: none;">
+        <h3>timeline item title</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+        <button class="read-more" id="info-btn-2" style="background-color: purple; color: white;">Read More</button>
+        <div class="modal" id="modal-2">
           <div class="modal-content">
             <span class="close">&times;</span>
             <br>
@@ -201,15 +227,17 @@
   <script>
     let correctAnswers = 0;
 
-    function checkAnswer(answer) {
-      if (answer === "true") {
-        document.getElementById('timeline-text').style.display = 'block';
+    function checkAnswer(answer, correctAnswer, index) {
+    if (answer === correctAnswer) {
+        document.getElementById('timeline-text-' + index).style.display = 'block';
         correctAnswers++;
         document.getElementById('correct-answers').innerText = correctAnswers;
-      } else {
-        alert('Incorrect answer. Please try again.');
-      }
+        document.getElementById('feedback-' + index).innerHTML = "Correct!";
+    } else {
+        document.getElementById('feedback-' + index).innerHTML = "Incorrect! Please try again.";
     }
+}
+
 
     function openModal(modalId) {
       var modal = document.getElementById(modalId);
