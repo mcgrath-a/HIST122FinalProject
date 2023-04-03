@@ -227,7 +227,23 @@
   <script>
     let correctAnswers = 0;
 
+  function disableButtons(index) {
+    //have to do for each true false question (belwo is oly for 2 of them)
+    const buttons = document.querySelectorAll(`
+  
+    button[onclick*="checkAnswer('true', 'true', ${index})"], 
+    button[onclick*="checkAnswer('true', 'false', ${index})"], 
+    button[onclick*="checkAnswer('false', 'true', ${index})"], 
+    button[onclick*="checkAnswer('false', 'false', ${index})"]`);
+  
+  buttons.forEach(button => {
+    button.disabled = true;
+  });
+}
+
+    
     function checkAnswer(answer, correctAnswer, index) {
+      disableButtons(index);
     if (answer === correctAnswer) {
         document.getElementById('timeline-text-' + index).style.display = 'block';
         correctAnswers++;
