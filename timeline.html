@@ -232,9 +232,11 @@
         document.getElementById('timeline-text-' + index).style.display = 'block';
         correctAnswers++;
         document.getElementById('correct-answers').innerText = correctAnswers;
-        document.getElementById('feedback-' + index).innerHTML = "Correct!";
+        document.getElementById('feedback-' + index).innerHTML = "Correct!  &#9989";
     } else {
-        document.getElementById('feedback-' + index).innerHTML = "Incorrect! Please try again.";
+      // "<span style='color: red;'>Incorrect!&#129409;</span>" to change font of inner html
+        document.getElementById('feedback-' + index).innerHTML = "Incorrect ! &#10060";
+        document.getElementById('timeline-text-' + index).style.display = 'block';
     }
 }
 
