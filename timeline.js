@@ -28,9 +28,16 @@ function checkAnswer(answer, correctAnswer, index) {
     document.getElementById('feedback-' + index).innerHTML = "Incorrect ! &#10060";
     document.getElementById('timeline-text-' + index).style.display = 'block';
   }
+  
+
   console.log(totalAnswers)
+
+  //have to change to 10 once finsihed 
   if (totalAnswers === 2) {
-    showResultsPopup();
+    setTimeout(function (){
+        showResultsPopup();
+    },2000);
+   
   }
 }
 
@@ -38,7 +45,7 @@ function checkAnswer(answer, correctAnswer, index) {
 //credits from https://codepen.io/matteobruni/pen/qBMWaPg
 function Confetti(confettiFunc){
 
-    const duration = 15 * 1000,
+    const duration = 15 * 1000, 
   animationEnd = Date.now() + duration,
   defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 500000 };
 
@@ -75,49 +82,76 @@ const run = () => {
 
 
 async function showResultsPopup() {
+    const confettiModule = await import("https://cdn.jsdelivr.net/npm/tsparticles-confetti/+esm");
+    const confetti = confettiModule.confetti;
+    // Start confetti animation
+    Confetti(confetti);
+  
+    // Create a pop-up element
+    var popup = document.createElement("div");
+    popup.style.position = "fixed";
+    popup.style.top = "50%";
+    popup.style.left = "50%";
+    popup.style.transform = "translate(-50%, -50%)";
+    popup.style.backgroundColor = "#ffffff";
+    popup.style.border = "1px solid #ccc";
+    popup.style.borderRadius = "5px";
+    popup.style.padding = "20px";
+    popup.style.zIndex = "1000";
+    popup.style.textAlign = "center";
+    popup.style.width = "50%"; // Change the percentage as needed
+    popup.style.height = "30%"; // Change the percentage as needed
+  
+    // Add the number of correct answers to the pop-up
+    var result = document.createElement("p");
+    result.innerHTML = correctAnswers + " / " + totalAnswers;
+    popup.appendChild(result);
 
-const confettiModule = await import("https://cdn.jsdelivr.net/npm/tsparticles-confetti/+esm");
-const confetti = confettiModule.confetti;
-  // Start confetti animation
 
-  Confetti(confetti);
+  
+    // Create a congratulatory message
+    var message = document.createElement("p");
+    message.style.fontSize = "24px";
+    message.style.fontWeight = "bold";
+    message.style.marginBottom = "20px";
+    message.innerHTML = "Congratulations!";
+    popup.appendChild(message);
+  
+    // Add a description based on the user's performance
+    var description = document.createElement("p");
+    description.style.fontSize = "18px";
+    description.style.marginBottom = "20px";
+    if (correctAnswers === totalAnswers) {
+      description.innerHTML = "You've answered all questions correctly! Great job!";
+    } else if (correctAnswers > totalAnswers / 2) {
+      description.innerHTML = "You've answered more than half of the questions correctly! Keep up the good work!";
+    } else {
+      description.innerHTML = "Don't worry, you can always try again and improve your score!";
+    }
+    popup.appendChild(description);
+  
+    // Add the pop-up to the body
+    document.body.appendChild(popup);
 
+     // Create a "Close" button
+  var closeButton = document.createElement("button");
+  closeButton.innerText = "Close";
+  closeButton.style.marginTop = "20px";
+ 
 
-  // Create a pop-up element
-  var popup = document.createElement("div");
-  popup.style.position = "fixed";
-  popup.style.top = "50%";
-  popup.style.left = "50%";
-  popup.style.transform = "translate(-50%, -50%)";
-  popup.style.backgroundColor = "#ffffff";
-  popup.style.border = "1px solid #ccc";
-  popup.style.borderRadius = "5px";
-  popup.style.padding = "20px";
-  popup.style.zIndex = "1000";
-  popup.style.textAlign = "center";
-  popup.style.width = "50%"; // Change the percentage as needed
-popup.style.height = "50%"; // Change the percentage as needed
+  // Assign an event listener to the "Close" button
+  closeButton.addEventListener("click", function () {
+    document.body.removeChild(popup);
+  });
 
-
-
-  // Add the number of correct answers to the pop-up
-  var result = document.createElement("p");
-  result.innerHTML = correctAnswers + " / " + totalAnswers;
-  popup.appendChild(result);
+  // Add the "Close" button to the pop-up
+  popup.appendChild(closeButton);
 
   // Add the pop-up to the body
   document.body.appendChild(popup);
-}
 
-function openModal(modalId) {
-  var modal = document.getElementById(modalId);
-  modal.style.display = "block";
-}
-
-function closeModal(modalId) {
-  var modal = document.getElementById(modalId);
-  modal.style.display = "none";
-}
+  }
+  
 
 document.addEventListener("DOMContentLoaded", function () {
   const infoButtons = document.getElementsByClassName("read-more");
