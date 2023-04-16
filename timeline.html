@@ -224,68 +224,6 @@
    
   </div>
 
-  <script>
-    let correctAnswers = 0;
-
-  function disableButtons(index) {
-    //have to do for each true false question (belwo is oly for 2 of them)
-    const buttons = document.querySelectorAll(`
-  
-    button[onclick*="checkAnswer('true', 'true', ${index})"], 
-    button[onclick*="checkAnswer('true', 'false', ${index})"], 
-    button[onclick*="checkAnswer('false', 'true', ${index})"], 
-    button[onclick*="checkAnswer('false', 'false', ${index})"]`);
-  
-  buttons.forEach(button => {
-    button.disabled = true;
-  });
-}
-
-    
-    function checkAnswer(answer, correctAnswer, index) {
-      disableButtons(index);
-    if (answer === correctAnswer) {
-        document.getElementById('timeline-text-' + index).style.display = 'block';
-        correctAnswers++;
-        document.getElementById('correct-answers').innerText = correctAnswers;
-        document.getElementById('feedback-' + index).innerHTML = "Correct!  &#9989";
-    } else {
-      // "<span style='color: red;'>Incorrect!&#129409;</span>" to change font of inner html
-        document.getElementById('feedback-' + index).innerHTML = "Incorrect ! &#10060";
-        document.getElementById('timeline-text-' + index).style.display = 'block';
-    }
-}
-
-
-    function openModal(modalId) {
-      var modal = document.getElementById(modalId);
-      modal.style.display = "block";
-    }
-
-    function closeModal(modalId) {
-      var modal = document.getElementById(modalId);
-      modal.style.display = "none";
-    }
-
-    document.addEventListener("DOMContentLoaded", function () {
-      const infoButtons = document.getElementsByClassName("read-more");
-
-      const closeButtons = document.getElementsByClassName("close");
-
-      for (let i = 0; i < infoButtons.length; i++) {
-        infoButtons[i].addEventListener("click", function () {
-          const modalId = 'modal-' + this.id.split('-')[2];
-          openModal(modalId);
-        });
-      }
-
-      for (let i = 0; i < closeButtons.length; i++) {
-        closeButtons[i].addEventListener("click", function () {
-          const modal = this.parentElement.parentElement;
-          closeModal(modal.id);
-        });
-      }
-    });
-  </script>
+  <script src="timeline.js"></script>
 </body>
 </html>
