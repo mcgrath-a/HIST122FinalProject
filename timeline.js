@@ -40,6 +40,35 @@ function checkAnswer(answer, correctAnswer, index) {
    
   }
 }
+function openModal(modalId) {
+    var modal = document.getElementById(modalId);
+    modal.style.display = "block";
+  }
+
+  function closeModal(modalId) {
+    var modal = document.getElementById(modalId);
+    modal.style.display = "none";
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const infoButtons = document.getElementsByClassName("read-more");
+
+    const closeButtons = document.getElementsByClassName("close");
+
+    for (let i = 0; i < infoButtons.length; i++) {
+      infoButtons[i].addEventListener("click", function () {
+        const modalId = 'modal-' + this.id.split('-')[2];
+        openModal(modalId);
+      });
+    }
+
+    for (let i = 0; i < closeButtons.length; i++) {
+      closeButtons[i].addEventListener("click", function () {
+        const modal = this.parentElement.parentElement;
+        closeModal(modal.id);
+      });
+    }
+  });
 
 //confeti code
 //credits from https://codepen.io/matteobruni/pen/qBMWaPg
@@ -153,22 +182,5 @@ async function showResultsPopup() {
   }
   
 
-document.addEventListener("DOMContentLoaded", function () {
-  const infoButtons = document.getElementsByClassName("read-more");
 
-  const closeButtons = document.getElementsByClassName("close");
 
-  for (let i = 0; i < infoButtons.length; i++) {
-    infoButtons[i].addEventListener("click", function () {
-      const modalId = 'modal-' + this.id.split('-')[2];
-      openModal(modalId);
-    });
-  }
-
-  for (let i = 0; i < closeButtons.length; i++) {
-    closeButtons[i].addEventListener("click", function () {
-      const modal = this.parentElement.parentElement;
-      closeModal(modal.id);
-    });
-  }
-});
