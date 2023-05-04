@@ -46,10 +46,10 @@ function checkAnswer(answer, correctAnswer, index) {
   console.log(totalAnswers)
 
   //have to change to 10 once finsihed 
-  if (totalAnswers === 2) {
+  if (totalAnswers === 10) {
     setTimeout(function (){
         showResultsPopup();
-    },2000);
+    },4000);
    
   }
 }
