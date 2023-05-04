@@ -59,21 +59,33 @@
           
           <div class="w3-content" style="max-width:800px; position:relative;">
             <div class="mySlides">
-              <img src="images/welcome-slideshow/correct-answers.png" style="width:100%">
+              <img src="images/welcome-slideshow/question.png" style="width:100%">
               <div class="caption">Caption for image 1</div>
             </div>
             <div class="mySlides">
-                <img src="images/welcome-slideshow/question.png" style="width:100%">
-                <div class="caption">Caption for image 3</div>
+                <img src="images/welcome-slideshow/correct-answers.png" style="width:100%">
+                <div class="caption">Caption for image 1</div>
               </div>
-            <div class="mySlides">
-              <img src="images/welcome-slideshow/final-pop-up.png" style="width:100%">
-              <div class="caption">Caption for image 2</div>
-            </div>
             <div class="mySlides">
               <img src="images/welcome-slideshow/full-question2.png" style="width:100%">
               <div class="caption">Caption for image 3</div>
             </div>
+            <div class="mySlides">
+                <img src="images/welcome-slideshow/readmore.png" style="width:100%">
+                <div class="caption">Caption for image 3</div>
+              </div>
+            <div class="mySlides">
+                <img src="images/welcome-slideshow/readmore-modal.png" style="width:100%">
+                <div class="caption">Caption for image 3</div>
+              </div>
+            <div class="mySlides">
+                <img src="images/welcome-slideshow/sources.png" style="width:100%">
+                <div class="caption">Caption for image 3</div>
+              </div>
+            <div class="mySlides">
+                <img src="images/welcome-slideshow/final-pop-up.png" style="width:100%">
+                <div class="caption">Caption for image 2</div>
+              </div>
            
           </div>
           
@@ -82,10 +94,13 @@
                 <button class="w3-button w3-light-grey" onclick="plusDivs(-1)" >❮ Prev</button>
               <button class="w3-button w3-light-grey" onclick="plusDivs(1)">Next ❯</button>
             </div>
-            <button class="w3-button " onclick="currentDiv(1)" style="background-color: #9d9c9f;">1</button>
-            <button class="w3-button " onclick="currentDiv(2)" style="background-color: #9d9c9f;">2</button> 
-            <button class="w3-button " onclick="currentDiv(3)" style="background-color: #9d9c9f;">3</button>  
-      
+            <button class="w3-button demo" onclick="currentDiv(1)" style="background-color: #9d9c9f;">1</button>
+            <button class="w3-button demo" onclick="currentDiv(2)" style="background-color: #9d9c9f;">2</button> 
+            <button class="w3-button demo" onclick="currentDiv(3)" style="background-color: #9d9c9f;">3</button>  
+            <button class="w3-button demo" onclick="currentDiv(4)" style="background-color: #9d9c9f;">4</button>  
+            <button class="w3-button demo" onclick="currentDiv(4)" style="background-color: #9d9c9f;">5</button>
+            <button class="w3-button demo" onclick="currentDiv(6)" style="background-color: #9d9c9f;">6</button> 
+            <button class="w3-button demo" onclick="currentDiv(7)" style="background-color: #9d9c9f;">7</button>  
           </div>
         
     </div>
@@ -115,10 +130,10 @@
         x[i].style.display = "none";  
       }
       for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" w3-red", "");
+        dots[i].className = dots[i].className.replace(" w3-blue", "");
       }
       x[slideIndex-1].style.display = "block";  
-      dots[slideIndex-1].className += " w3-red";
+      dots[slideIndex-1].className += " w3-blue";
     }
     </script>
 </html>
