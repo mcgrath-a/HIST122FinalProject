@@ -94,6 +94,22 @@
         color: #ffffff;
         cursor: pointer;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+.zoom-on-hover {
+  transition: transform 0.3s ease;
+  z-index: 1000;
+
+
+}
+
+.zoom-on-hover:hover {
+  transform: scale(1.5);
+}
+
 /* Modal */
 .modal {
     display: none;
@@ -118,6 +134,7 @@
 .modal-image {
     max-width: 100%;
     height: auto;
+    z-index: 1000;
 }
 .close {
     color: white;
@@ -131,8 +148,8 @@
 
 /* collpasible */
 .collapsible {
-  background-color: #404a55;
-  opacity: 0.65;
+  background-color:#4a535e;
+  
   color: white;
   cursor: pointer;
   padding: 18px;
@@ -141,6 +158,7 @@
   text-align: left;
   outline: none;
   font-size: 15px;
+ 
 }
 
 .active, .collapsible:hover {
@@ -207,7 +225,7 @@
 			<div class="timeline-dot"></div>
 			<div class="timeline-date">1922</div>
       <div class="quiz">
-        <p> <b>Question 1: </b>Mussolini's rise to power in Italy and his structure of fascism did not influence the rise of Nazism in Germany</p>
+        <p> <b>Statement 1: </b>Mussolini's rise to power in Italy and his structure of fascism did not influence the rise of Nazism in Germany</p>
         <button onclick="checkAnswer('true', 'false', 1)" style="background-color: green; color: white;">True</button>
         <button onclick="checkAnswer('true', 'true', 1)" style="background-color: red; color: white;">False</button>
         <span id="feedback-1" class="correct-incorrect"></span>
@@ -227,26 +245,40 @@
           <div class="modal-content">
             <span class="close">&times;</span>
             <br>
-            <div class = "clearfix">
-              <img class="modal-image" src="images/event-images/H-M.png" alt="Pineapple" title="Hitler & Mussolini greet each other for the first time in Venice" 
-              width="526" height="739" padding = "8px">
+            <div class="clearfix">
+              <img class="modal-image zoom-on-hover" src="images/event-images/H-M.png" alt="Pineapple" 
+              title="Hitler & Mussolini greet each other for the first time in Venice" width="400" height="539" padding="8px">
+         
             <p style="color: white; font-size: 18px;"> 
             <b> More information </b>
             <br>
             <br>
-            Mussolini's conception/definition of fascism, as described in "The Nationalism Reader," provided a new framework for the political landscape in Europe. He wrote, "Fascism is action, and it is thought; action in which doctrine is immanent, and doctrine arising from a given system of historical forces in which it is inserted and working on them from within" (Mussolini qtd. in Dahbour and Ishay 199). 
+            Mussolini's conception/definition of fascism, as described in "The Nationalism Reader," provided a 
+            new framework for the political landscape in Europe. He wrote, <i>"Fascism is action, and it is thought; 
+            action in which doctrine is immanent, and doctrine arising from a given system of historical forces in
+             which it is inserted and working on them from within"</i> (Mussolini qtd. in Dahbour and Ishay 199). 
             <br>
             <br>
-            This statement reflects the core belief of fascism as an active, spiritual, and holistic approach to governance that encompasses all aspects of life.It also included a strong emphasis on the state's importance, the suppression of individualism for the greater good, and a spiritual connection to a higher law Mussolini's ideas, which would later resonate with and influence the development of Nazism in Germany.
+            This statement reflects the core belief of fascism as an active, spiritual, and holistic approach to 
+            governance that encompasses all aspects of life. It also included a strong emphasis on the state's 
+            importance, the suppression of individualism for the greater good, and a spiritual connection to a 
+            higher law Mussolini's ideas, which would later resonate with and influence the development of Nazism
+             in Germany.
             <br>
             <br>
             <b>Editors Opinion</b>
             <br>
             <br>
-            During this unit, engaging with Mussolini's definition of fascism offers valuable insight into the roots of a political ideology that shaped Europe during the 20th century. Understanding the foundations of fascism and its impact on the rise of Nazism in Germany helps to contextualize the historical events leading up to World War II and the Holocaust. 
+            During this unit, engaging with Mussolini's definition of fascism offers valuable insight into 
+            the roots of a political ideology that shaped Europe during the 20th century. Understanding 
+            the foundations of fascism and its impact on the rise of Nazism in Germany helps to contextualize 
+            the historical events leading up to World War II and the Holocaust. 
             <br>
             <br>
-            Moreover, by examining the political, social, and ideological factors that contributed to the rise of fascism, not only us taking the course but also society as a whole can better comprehend the challenges societies faced during this tumultuous period and learn from history to recognize the potential dangers of extremist ideologies.
+            Moreover, by examining the political, social, and ideological factors that contributed to the
+             rise of fascism, not only by enrolling and taking this course but taking it a step further uniting society as a whole;
+            we can better comprehend the challenges societies faced during this tumultuous period and learn from history to recognize 
+             the  dangers of extremist ideologies, so history does not repeat itself.
             <br>
             <p></p>
             <button class="collapsible"><b>Sources</b></button>
@@ -269,7 +301,7 @@
 			<div class="timeline-dot"></div>
 			<div class="timeline-date">1936</div>
       <div class="quiz">
-        <p><b>Question 2: </b>The Battle of Cable Street was a confrontation between anti-fascist protesters and the British Union of Fascists.</p>
+        <p><b>Statement 2: </b>The Battle of Cable Street was a confrontation between anti-fascist protesters and the British Union of Fascists.</p>
         <button onclick="checkAnswer('true', 'true', 2)" style="background-color: green; color: white;">True</button>
         <button onclick="checkAnswer('false', 'true', 2)" style="background-color: red; color: white;">False</button>
         <span id="feedback-2" class="correct-incorrect"></span>
@@ -277,7 +309,10 @@
 			<div class="timeline-content" id="timeline-text-2" style="display: none;">
         <h3>Battle of Cable Street
         </h3>
-        <p>The Battle of Cable Street was indeed a confrontation between anti-fascist protesters and the British Union of Fascists (BUF) led by Oswald Mosley, a former member of Parliament who founded the BUF in 1932. They built barricades and clashed with the police, who were assigned to accompany the march, to prevent the BUF from spreading their message of hatred and intolerance.
+        <p>This statement is true the Battle of Cable Street was a confrontation between anti-fascist protesters 
+          and the British Union of Fascists (BUF) led by Oswald Mosley, a former member of Parliament 
+          who founded the BUF in 1932. They built barricades and clashed with the police, who were assigned 
+          to accompany the march, to prevent the BUF from spreading their message of hatred and intolerance.
         </p>
         <button class="read-more" id="info-btn-2" style="background-color: purple; color: white;">Read More</button>
         <div class="modal" id="modal-2">
@@ -285,29 +320,43 @@
             <span class="close">&times;</span>
             <br>
             <div class = "clearfix">
-              <img class="modal-image" src="images/event-images/cable-street.webp" alt="Pineapple" title="Hitler & Mussolini greet each other for the first time in Venice" 
-              width="526" height="739" padding = "8px">
+              <img class="modal-image zoom-on-hover" src="images/event-images/cable-street.webp" alt="Pineapple" title="Hitler & Mussolini greet each other for the first time in Venice" 
+              width="600" height="400" padding = "8px">
             <p style="color: white; font-size: 18px;"> 
             <b> More information </b>
             <br>
             <br>
-            The Battle of Cable Street is an example of grassroots resistance against the rise of fascism in the 1930s. This event occurred when fascist ideologies were gaining momentum across Europe, such as Mussolini's rise to power in Italy as discussed in the previous event. The diverse group of anti-fascist protesters, up to 200,000, included Jewish residents, Irish dock workers and laborers, Communists, and Labour Party members.  The demonstrators' successful effort to force Mosley and the BUF to turn back shows the power of collective action against oppressive ideologies.
+            The Battle of Cable Street is an example of grassroots resistance against the rise of fascism
+             in the 1930s. This event occurred when fascist ideologies were gaining momentum across Europe, 
+             such as Mussolini's rise to power in Italy as discussed in the previous event. The diverse group of 
+             anti-fascist protesters, up to 200,000, included Jewish residents, Irish dock workers and laborers, 
+             Communists, and Labour Party members. The demonstrators' successful effort to force Mosley and the 
+             BUF to turn back shows the power of collective action against oppressive ideologies.
             <br>
             <br>
-            Their chant, "No Pasarán! They Shall Not Pass!"—borrowed from Spain's anti-fascist movement—symbolized their determination to stand up against the BUF's hateful rhetoric, which targeted Jews and Communists. This event demonstrates how communities could unite in the face of the growing fascist threat and fight to protect their values and way of life. 
+            Their chant, <i>"No Pasarán! They Shall Not Pass!"</i>—borrowed from Spain's anti-fascist movement—symbolized 
+            their determination to stand up against the BUF's hateful rhetoric, which targeted Jews and Communists ("Standing up to Hatred on Cable Street").
+             This event demonstrates how communities could unite in the face of the growing fascist threat and fight
+              to protect their values and way of life. 
             <br>
             <br>
             <b>Editor's Opinion:</b>
             <br>
             <br>
-            I find the Battle of Cable Street to be a powerful illustration of the potential for ordinary people to make a stand against hateful ideologies. This event highlights the importance of community solidarity and collective action in the face of oppressive forces, such as the BUF's brand of fascism. The Battle of Cable Street underscores the need for vigilance against the spread of hatred and intolerance, as well as the responsibility of each individual to take an active role in safeguarding democratic values. By understanding how communities have successfully resisted the rise of fascism in the past, we can better equip ourselves to recognize and confront similar threats in the present and future.
+            I find the Battle of Cable Street to be a powerful illustration of the potential for ordinary 
+            people to make a stand against hateful ideologies. This event highlights the importance of community 
+            solidarity and collective action in the face of oppressive forces, such as the BUF's brand of fascism. 
+             By understanding how communities have successfully resisted the rise of fascism in the past, we can better
+              equip ourselves to recognize and confront similar threats in the present and future.
             <br>
             <p></p>
             <button class="collapsible"><b>Sources</b></button>
             <div class="content">
-              <p class="hangingindent">Dahbour, Omar, and Micheline Ishay, editors. The Nationalism Reader. Humanity Books, 1999</p>
+              <p class="hangingindent">“Standing up to Hatred on Cable Street.” Facing History and Ourselves, 19 Aug. 2019, www.facinghistory.org/en-gb/resource-library/standing-hatred-cable-street-0.  
+                   
+                </p>
               <br>
-              <p class="hangingindent">Hitler & Mussolini greet each other for the first time in Venice. 6/13/1934. Artstor, library-artstor-org.oxy.idm.oclc.org/asset/ARTSTOR_103_41822001751609</p>
+              <p class="hangingindent">Police arrest an antifascist demonstrator near Cable Street in east London. 10/4/1936, Flashbak, https://flashbak.com/the-battle-of-cable-street-when-20000-antifascist-workers-fought-back-against-the-police-and-oswald-mosleys-british-union-of-fascists-in-1936-441748/.</p>
             </div>
                       
 
