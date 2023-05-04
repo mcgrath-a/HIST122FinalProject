@@ -23,6 +23,10 @@
     padding: 20px 30px;
   }
   
+  .hangingindent {
+    padding-left: 22px ;
+    text-indent: -22px ;
+  }
   
   .home__menu{
     list-style: none;

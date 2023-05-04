@@ -4,10 +4,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <style>  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
     </style>
     <style>
 
+.mySlides {
+    display: none;
+  border: 3px solid #ccc;
+  /* Set fixed width and height for the images */
+  width: 800px;
+  height: 450px;
+  object-fit: cover; 
+    
+}
+.caption {
+  background-color: white;
+  color: black;
+  padding: 5px;
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+}
 
     </style>
 </head>
@@ -33,20 +52,73 @@
         <br>
         Maecenas sed enim ut sem viverra aliquet eget sit amet. Gravida rutrum quisque non tellus orci ac auctor. Tellus at urna condimentum mattis. Tempus imperdiet nulla malesuada pellentesque elit eget gravida cum sociis. Vestibulum morbi blandit cursus risus at. Porta non pulvinar neque laoreet suspendisse interdum consectetur libero. Elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at augue. A iaculis at erat pellentesque. Sed sed risus pretium quam vulputate dignissim suspendisse. Sed ullamcorper morbi tincidunt ornare massa. Viverra adipiscing at in tellus integer feugiat scelerisque varius morbi. Integer feugiat scelerisque varius morbi enim nunc. Laoreet suspendisse interdum consectetur libero id. Sem nulla pharetra diam sit. Pretium aenean pharetra magna ac placerat vestibulum. Maecenas ultricies mi eget mauris pharetra et. Placerat vestibulum lectus mauris ultrices eros in cursus turpis massa. Convallis aenean et tortor at risus viverra adipiscing at in. Lacus vestibulum sed arcu non odio euismod lacinia at.</p>
 
-        <video controls width="" height= "500" style="align-self: center; padding: 10px;">
-            <source src="/media/cc0-videos/flower.webm" type="video/webm">
-        
-            <source src="images/Summer 2022  Presentation - Alyanna McGrath.mp4" type="video/mp4">
-        
-            Download the
-            <a href="/media/cc0-videos/flower.webm">WEBM</a>
-            or
-            <a href="images/Summer 2022  Presentation - Alyanna McGrath.mp4">MP4</a>
-            video.
-        </video>
+        <div class="w3-container">
+            <h2>Slideshow Indicators</h2>
+            <p>An example of using buttons to indicate how many slides there are in the slideshow, and which slide the user is currently viewing.</p>
+          </div>
+          
+          <div class="w3-content" style="max-width:800px; position:relative;">
+            <div class="mySlides">
+              <img src="images/welcome-slideshow/correct-answers.png" style="width:100%">
+              <div class="caption">Caption for image 1</div>
+            </div>
+            <div class="mySlides">
+                <img src="images/welcome-slideshow/question.png" style="width:100%">
+                <div class="caption">Caption for image 3</div>
+              </div>
+            <div class="mySlides">
+              <img src="images/welcome-slideshow/final-pop-up.png" style="width:100%">
+              <div class="caption">Caption for image 2</div>
+            </div>
+            <div class="mySlides">
+              <img src="images/welcome-slideshow/full-question2.png" style="width:100%">
+              <div class="caption">Caption for image 3</div>
+            </div>
+           
+          </div>
+          
+          <div class="w3-center">
+            <div class="w3-section">
+                <button class="w3-button w3-light-grey" onclick="plusDivs(-1)" >❮ Prev</button>
+              <button class="w3-button w3-light-grey" onclick="plusDivs(1)">Next ❯</button>
+            </div>
+            <button class="w3-button " onclick="currentDiv(1)" style="background-color: #9d9c9f;">1</button>
+            <button class="w3-button " onclick="currentDiv(2)" style="background-color: #9d9c9f;">2</button> 
+            <button class="w3-button " onclick="currentDiv(3)" style="background-color: #9d9c9f;">3</button>  
+      
+          </div>
         
     </div>
 </div>
     
 </body>
+
+<script>
+    var slideIndex = 1;
+    showDivs(slideIndex);
+    
+    function plusDivs(n) {
+      showDivs(slideIndex += n);
+    }
+    
+    function currentDiv(n) {
+      showDivs(slideIndex = n);
+    }
+    
+    function showDivs(n) {
+      var i;
+      var x = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("demo");
+      if (n > x.length) {slideIndex = 1}    
+      if (n < 1) {slideIndex = x.length}
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";  
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" w3-red", "");
+      }
+      x[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " w3-red";
+    }
+    </script>
 </html>

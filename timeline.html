@@ -129,6 +129,43 @@
     cursor: pointer;
 }
 
+/* collpasible */
+.collapsible {
+  background-color: #404a55;
+  opacity: 0.65;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: rgb(165, 161, 161);
+}
+
+.collapsible:after {
+  content: '\002B';
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+
+}
 /* responsive */
 @media(max-width: 767px){
   .timeline-items::before{
@@ -191,26 +228,30 @@
             <span class="close">&times;</span>
             <br>
             <div class = "clearfix">
-              <img class="modal-image" src="images/prisoners.png" alt="Pineapple" title="this will be displayed as a tooltip" 
+              <img class="modal-image" src="images/holocaust.jpeg" alt="Pineapple" title="this will be displayed as a tooltip" 
               width="526" height="739" padding = "8px">
             <p style="color: white; font-size: 18px;"> 
-            <b> Section One </b>
+            <b> More information </b>
             <br>
             <br>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel justo vitae odio sagittis vulputate non nec velit. Etiam et justo eu dolor convallis tincidunt. In ultricies libero lorem, eget semper lectus egestas in. Sed facilisis odio ac orci pretium, sed vestibulum ligula fringilla. Proin egestas neque non tristique vestibulum. Praesent euismod, sapien non fermentum pretium, mauris eros malesuada enim, et tincidunt mi dolor in lectus.
             <br>
             <br>
-            <b>Section 2</b>
+            <b>Editors Opinion</b>
             <br>
             <br>
             Pellentesque vel imperdiet turpis, vitae dictum arcu. Quisque fermentum turpis sapien, eget tristique erat auctor in. Ut dapibus, lorem a cursus auctor, sapien purus aliquam neque, eget iaculis ante odio vitae libero. Fusce in eros dolor. Nam ut ipsum dapibus, fermentum orci id, cursus dolor. Mauris at diam odio. In consequat vehicula magna, ut tempor justo ultricies vel. Vivamus dictum bibendum odio, ac venenatis nisl mollis non.
             <br>
             <br>
-            <b>Section 3</b>
-            <br>
-            <br>
-            Morbi condimentum nibh vel sapien suscipit, vitae vulputate erat bibendum. Cras bibendum laoreet mauris, in malesuada mauris sodales nec. Integer sed erat consequat, fringilla sem ac, accumsan sapien. Nunc auctor vestibulum ligula, eu maximus mi dignissim a. Integer facilisis, sapien eu bibendum volutpat, nisi lorem egestas sapien, non venenatis ligula libero ut sapien. Duis porttitor convallis quam, in ullamcorper tellus bibendum vel. Fusce vitae ullamcorper nulla, at varius quam.
-            </p>
+            <p></p>
+            <button class="collapsible"><b>Sources</b></button>
+            <div class="content">
+              <p class="hangingindent">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <p class="hangingindent">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+                      
+
+
             </div>
           </div>
         </div>
