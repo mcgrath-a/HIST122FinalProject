@@ -156,7 +156,7 @@ async function showResultsPopup() {
     message.style.fontSize = "24px";
     message.style.fontWeight = "bold";
     message.style.marginBottom = "20px";
-    message.innerHTML = "Congratulations!";
+    message.innerHTML = "Congratulations! You have completed the timeline.";
     popup.appendChild(message);
   
     // Add a description based on the user's performance
@@ -164,12 +164,13 @@ async function showResultsPopup() {
     description.style.fontSize = "18px";
     description.style.marginBottom = "20px";
     if (correctAnswers === totalAnswers) {
-      description.innerHTML = "You've answered all questions correctly! Great job!";
+      description.innerHTML = "You scored " + correctAnswers + " out of 10. Wow, you know your stuff! Are you a historian?";
     } else if (correctAnswers > totalAnswers / 2) {
-      description.innerHTML = "You've answered more than half of the questions correctly! Keep up the good work!";
+      description.innerHTML = "You scored " + correctAnswers + " out of 10. Impressive! You've answered more than half of the questions correctly. Keep exploring history!";
     } else {
-      description.innerHTML = "Don't worry, you can always try again and improve your score!";
+      description.innerHTML = "You scored " + correctAnswers + " out of 10. Don't worry, history is a vast subject. Keep learning and try again!";
     }
+    
     popup.appendChild(description);
   
     // Add the pop-up to the body
@@ -191,6 +192,16 @@ async function showResultsPopup() {
 
   // Add the pop-up to the body
   document.body.appendChild(popup);
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const noselectElements = document.querySelectorAll('.noselect');
+    noselectElements.forEach(function (element) {
+      element.addEventListener('contextmenu', function (event) {
+        event.preventDefault();
+      });
+    });
+  });
+  
 
   }
   
